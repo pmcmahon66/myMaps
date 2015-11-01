@@ -9,7 +9,8 @@
                 @import "css/themes/smoothness/jquery-ui-1.8.4.custom.css";
     </style>
     
-    <script src="https://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4Eg5R8ZRHnASzTEkqkJeZXNhuafQEUfM"
+            type="text/javascript"></script>
     
         <!-- Custom styles for this template -->
     <link href="mapstyle.css" rel="stylesheet">
