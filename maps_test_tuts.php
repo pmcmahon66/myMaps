@@ -6,7 +6,6 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4Eg5R8ZRHnASzTEkqkJeZXNhuafQEUfM" type="text/javascript"></script>
     <script type="text/javascript">
     //<![CDATA[
-
     var customIcons = {
       stop: {
         icon: 'http://localhost/myfolio/map_icon.png'
