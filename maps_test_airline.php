@@ -8,9 +8,13 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4Eg5R8ZRHnASzTEkqkJeZXNhuafQEUfM" type="text/javascript"></script>
 <!--        <script src="markermanager.js"></script>-->
 
-        <script>
-
-
+    <script type="text/javascript">
+    //<![CDATA[
+    var customIcons = {
+      stop: {
+        icon: 'http://localhost/myfolio/map_icon.png'
+      }
+    };
             function initialize() {
 
                 getAjaxData();
@@ -37,7 +41,7 @@
 
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
                 {
-                    var myLatlng = new google.maps.LatLng(53.4333, -7.9500);
+                    var myLatlng = new google.maps.LatLng(55, -8);
                     var mapOptions =
                             {
                                 zoom: 9,
@@ -54,14 +58,16 @@
 
                         console.log(data.markers[i].track);
                         //var image = 'images/plane.png';
+                        var icon = customIcons[stop_id] || {};
                         var marker = new google.maps.Marker({
                             position: mapPosition,
                             map: map,
-                            icon: {
-                                path: google.maps.SymbolPath.FORWARD_OPEN_ARROW,
-                                scale: 4,
-//                                rotation: parseInt(data.markers[i].track)
-                            },
+                            icon: icon.icon,
+//                            icon: {
+//                                path: google.maps.SymbolPath.FORWARD_OPEN_ARROW,
+//                                scale: 4,
+////                                rotation: parseInt(data.markers[i].track)
+//                            },
                             title: data.markers[i].stop_name
                         });
                     }
