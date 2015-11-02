@@ -1,3 +1,5 @@
+/* global google */
+
 <!DOCTYPE html >
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
@@ -6,63 +8,51 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4Eg5R8ZRHnASzTEkqkJeZXNhuafQEUfM"
             type="text/javascript"></script>
     <script type="text/javascript">
-    //<![CDATA[
+        // code to draw map
+        var map;
+        var col = '#FF0000';
+        var link ;
+        var latLng;
+        var polypoints;
 
-    var customIcons = {
-      name: {
-        icon: 'http://localhost/myfolio/map_icon.png'
-      }
-    };
+        function load() {
+        var mapProp = {
+                center : new google.maps.LatLng(55, -7),
+                zoom : 8,
+                mapTypeId : google.maps.MapTypeId.ROADMAP
+            };
+        map = new google.maps.Map(document.getElementById("map"), mapProp);
 
-    function load() {
-      var map = new google.maps.Map(document.getElementById("map"), {
-        center: new google.maps.LatLng(55, -8),
-        zoom: 8,
-        mapTypeId: 'roadmap'
-      });
-      var infoWindow = new google.maps.InfoWindow;
-
-      // Change this depending on the name of your PHP file
+// draw links
       downloadUrl("route_shapes.php", function(data) {
         var xml = data.responseXML;
         var routes = xml.documentElement.getElementsByTagName("route");
-        for (var i = 0; i < routes.length; i++) {
-//          var busrouteCoordinates = routes[i].getAttribute("stop");
-//          var route = markers[i].getAttribute("address");
-//          var type = markers[i].getAttribute("type");
-          var busrouteCoordinates = new google.maps.LatLng(
-              parseFloat(routes[i].getAttribute("lat")),
-              parseFloat(routes[i].getAttribute("lng")));
-//          var html = "<b>" + name + "</b> <br/>";//+ address
-//          var icon = customIcons[name] || {};
-   var busPath = new google.maps.Polyline({
-    path: busrouteCoordinates,
-    geodesic: true,
-    strokeColor: '#FF0000',
-    strokeOpacity: 1.0,
-    strokeWeight: 5
-  });
-//         for (var i = 0; i <.document)
-//          var busrouteCoordinates = [
-//    {lat: 54.9538024330701, lng: -7.72931506865457},
-//    {lat: 54.9540175027054, lng: -7.72906383992521},
-//    {lat: 54.9540442124161, lng: -7.72895437997576},
-//    {lat: 54.9540256517662, lng: -7.72868911004762}
-//  ];
+        for(var i = 0 ; i < routes.length; i++)
+            {
+              latLng = routes[i].path; 
+              // polylines lat long array
+              polypoints = [];
+              for ( var j = 0; j < latLng.length; j++) {
+                polypoints[j] = new google.maps.LatLng(
+                        parseFloat(latLng[j].lat),
+                        parseFloat(latLng[j].lng));
 
-  busPath.setMap(map);
-  
-          bindInfoWindow(marker, map, infoWindow, html);
+              }
+              }
+             link = new google.maps.Polyline({
+               path : polypoints,
+               geodesic : true,
+               strokeColor : '#ff0000',
+               strokeOpacity : 0.5,
+               strokeWeight : 8,
+               title : "test"
+            });
+            link.setMap(map);
+            
+           });
         }
-      });
-    }
 
-//    function bindInfoWindow(marker, map, infoWindow, html) {
-//      google.maps.event.addListener(marker, 'click', function() {
-//        infoWindow.setContent(html);
-//        infoWindow.open(map, marker);
-//      });
-//    }
+//         google.maps.event.addDomListener(window, 'load', initialize); 
 
     function downloadUrl(url, callback) {
       var request = window.ActiveXObject ?
@@ -81,8 +71,6 @@
     }
 
     function doNothing() {}
-
-    //]]>
 
   </script>
 
