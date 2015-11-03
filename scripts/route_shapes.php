@@ -1,5 +1,6 @@
+<?php include 'header.php'; ?>
 <?php
-require("database2.php");
+//require("../database2.php");
 
 // Start XML file, create parent node
 $dom = new DOMDocument("1.0");
@@ -7,16 +8,17 @@ $node = $dom->createElement("routes");
 $parnode = $dom->appendChild($node);
 
 // Select all the rows in the markers table
-$query = "SELECT * FROM wp_shapes WHERE 1";
-$result = mysqli_query($connection,$query);
-if (!$result) {
-  die('Invalid query: ' . mysqli_error());
-}
-
-header("Content-type: text/xml");
+global $wpdb;  $result = $wpdb->get_results("SELECT * FROM wp_shapes");
+//$query = "SELECT * FROM shapes WHERE 1";
+//$result = mysqli_query($connection,$query);
+//if (!$result) {
+//  die('Invalid query: ' . mysqli_error());
+//}
+//
+//header("Content-type: text/xml");
 
 // Iterate through the rows, adding XML nodes for each
-while ($row = @mysqli_fetch_assoc($result)){
+foreach($result as $row){
   // ADD TO XML DOCUMENT NODE
   $node = $dom->createElement("route");
   $newnode = $parnode->appendChild($node);
@@ -30,6 +32,6 @@ print $dom->saveXML();
 
 ?>
 
-<?php
-mysqli_close($connection);
-?>
+//<?php
+//mysqli_close($connection);
+//?>

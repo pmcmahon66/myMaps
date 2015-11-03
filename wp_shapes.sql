@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 02, 2015 at 09:25 PM
+-- Generation Time: Nov 03, 2015 at 06:46 PM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -23,10 +23,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `shapes`
+-- Table structure for table `wp_shapes`
 --
 
-CREATE TABLE IF NOT EXISTS `shapes` (
+CREATE TABLE IF NOT EXISTS `wp_shapes` (
   `shape_id` int(11) NOT NULL,
   `shape_pt_lat` float(10,6) NOT NULL,
   `shape_pt_lon` float(10,6) NOT NULL,
@@ -35,10 +35,10 @@ CREATE TABLE IF NOT EXISTS `shapes` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `shapes`
+-- Dumping data for table `wp_shapes`
 --
 
-INSERT INTO `shapes` (`shape_id`, `shape_pt_lat`, `shape_pt_lon`, `shape_pt_sequence`, `shape_dist_traveled`) VALUES
+INSERT INTO `wp_shapes` (`shape_id`, `shape_pt_lat`, `shape_pt_lon`, `shape_pt_sequence`, `shape_dist_traveled`) VALUES
 (13, 54.953800, -7.729315, 1, 0.000000),
 (13, 54.954018, -7.729064, 2, 0.000000),
 (13, 54.954044, -7.728954, 3, 0.000000),

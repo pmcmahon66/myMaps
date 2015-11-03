@@ -1,0 +1,31 @@
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <wp:wxr_version>1.1</wp:wxr_version>
+    <markers>
+<routes>
+<route id="13" lat="54.953800" lng="-7.729315" seq="1"/>
+<route id="13" lat="54.954018" lng="-7.729064" seq="2"/>
+<route id="13" lat="54.954044" lng="-7.728954" seq="3"/>
+<route id="13" lat="54.954025" lng="-7.728689" seq="4"/>
+<route id="13" lat="54.953819" lng="-7.728862" seq="5"/>
+<route id="13" lat="54.953495" lng="-7.729021" seq="6"/>
+<route id="13" lat="54.953423" lng="-7.728865" seq="7"/>
+<route id="13" lat="54.953297" lng="-7.728897" seq="8"/>
+<route id="13" lat="54.953083" lng="-7.728414" seq="9"/>
+<route id="13" lat="54.952358" lng="-7.726265" seq="10"/>
+<route id="13" lat="54.951389" lng="-7.722931" seq="11"/>
+<route id="13" lat="54.951080" lng="-7.721794" seq="12"/>
+<route id="13" lat="54.950321" lng="-7.719317" seq="13"/>
+<route id="13" lat="54.950237" lng="-7.718958" seq="14"/>
+<route id="13" lat="54.949722" lng="-7.717276" seq="15"/>
+<route id="13" lat="54.949596" lng="-7.716965" seq="16"/>
+<route id="13" lat="54.949120" lng="-7.716235" seq="17"/>
+<route id="13" lat="54.949162" lng="-7.716141" seq="18"/>
+<route id="13" lat="54.949188" lng="-7.715984" seq="19"/>
+<route id="13" lat="54.949181" lng="-7.715828" seq="20"/>
+<route id="13" lat="54.949116" lng="-7.715673" seq="21"/>
+<route id="13" lat="54.949055" lng="-7.715595" seq="22"/>
+<route id="13" lat="54.948975" lng="-7.715564" seq="23"/>
+<route id="13" lat="54.948532" lng="-7.714740" seq="24"/>
+<route id="13" lat="54.948097" lng="-7.713807" seq="25"/>
+<route id="13" lat="54.947952" lng="-7.713605" seq="26"/>
+</routes>

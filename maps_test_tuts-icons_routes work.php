@@ -43,6 +43,28 @@
           bindInfoWindow(marker, map, infoWindow, html);
         }
       });
+      
+      downloadUrl("route_shapes.php", function(data) {
+    var xml = data.responseXML;
+    var routes = xml.documentElement.getElementsByTagName("route");
+    var path = [];
+    for (var i = 0; i < routes.length; i++) {
+      var lat = parseFloat(routes[i].getAttribute("lat"));
+      var lng = parseFloat(routes[i].getAttribute("lng"));
+      var point = new google.maps.LatLng(lat,lng);
+      path.push(point);
+    }//finish loop
+
+    var polyline = new google.maps.Polyline({
+      path: path,
+      geodesic : true,
+      strokeColor: "#ff0000",
+      strokeOpacity: 1.0,
+      strokeWeight: 4
+    });
+    polyline.setMap(map);
+
+}); //end download url
     }
 
     function bindInfoWindow(marker, map, infoWindow, html) {
